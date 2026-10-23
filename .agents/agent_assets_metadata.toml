@@ -14,3 +14,17 @@ mtime_ms = 1792748388862
 storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:6260bfa9-0182-424e-935a-bc38d02264a5/3131979a-72e7-4c7f-b28e-b53f577e1a2c/acbb5de4-7dc9-4796-b991-fd49e8b58229"
 storage_version_token = "1792748410925371"
 content_type = "text/html"
+
+[[outputs]]
+id = "hSNVxTTlkP2K9Mzf7HoOd"
+uri = "file://artifacts/justgo-plus/docs/justgo-plus-ios-handover.html"
+type = "html"
+title = "JustGo Plus — iOS Developer Handover Guide"
+description = "A detailed, source-verified handover document for React Native maintenance. Covers stack, MVVM, code map, feature flows, local persistence, dependencies, Replit build process, privacy limits, debugging, and production gaps."
+logical_id = "7a89daec-e89a-4cfd-acb7-6d02160bb0b2"
+content_hash = "sha256:8cd187af3b071e4b197214762370776b2ce41d7a540d12f8bfedff1cf3710afb"
+size = 34335
+mtime_ms = 1792750059988
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:6260bfa9-0182-424e-935a-bc38d02264a5/7a89daec-e89a-4cfd-acb7-6d02160bb0b2/bae41665-9f0d-403c-93be-bc5268c090a5"
+storage_version_token = "1792750089129190"
+content_type = "text/html"
