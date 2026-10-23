@@ -1,6 +1,7 @@
 import { Link, Stack } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import { useColors } from '@/hooks/useColors';
+import { CreatorBanner } from '@/components/ui';
 
 export default function NotFoundScreen() {
   const colors = useColors();
@@ -8,22 +9,28 @@ export default function NotFoundScreen() {
   return (
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
-      <View style={[styles.container, { backgroundColor: colors.background }]}>
-        <Text style={[styles.title, { color: colors.foreground }]}>
-          This screen doesn&apos;t exist.
-        </Text>
-
-        <Link href="/" style={styles.link}>
-          <Text style={[styles.linkText, { color: colors.primary }]}>
-            Go to home screen!
+      <View style={[styles.root, { backgroundColor: colors.background }]}>
+        <CreatorBanner />
+        <View style={styles.container}>
+          <Text style={[styles.title, { color: colors.foreground }]}>
+            This screen doesn&apos;t exist.
           </Text>
-        </Link>
+
+          <Link href="/" style={styles.link}>
+            <Text style={[styles.linkText, { color: colors.primary }]}>
+              Go to home screen!
+            </Text>
+          </Link>
+        </View>
       </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: 'center',

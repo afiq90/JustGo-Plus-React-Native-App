@@ -10,6 +10,14 @@ import { tap } from '@/services/haptics';
 
 const C = colors.light;
 
+export function CreatorBanner() {
+  return (
+    <View accessibilityLabel="This app was created by Afiq" style={s.creatorBanner}>
+      <Text style={s.creatorBannerText}>This app was created by Afiq</Text>
+    </View>
+  );
+}
+
 export function useTopInset() {
   const insets = useSafeAreaInsets();
   return Platform.OS === 'web' ? 67 : insets.top;
@@ -25,7 +33,8 @@ export function RedHeader({ title, onBack, right }: { title: string; onBack?: ()
   const { width } = useWindowDimensions();
   return (
     <View style={[s.header, { paddingTop: top }]}>
-      <HeaderBands width={width} height={top + px(84)} />
+      <HeaderBands width={width} height={top + px(108)} />
+      <CreatorBanner />
       <View style={s.headerRow}>
         <View style={s.headerSide}>
           {onBack ? (
@@ -174,6 +183,8 @@ export const ui = StyleSheet.create({
 
 const s = StyleSheet.create({
   header: { backgroundColor: C.header, overflow: 'hidden' },
+  creatorBanner: { minHeight: px(24), alignItems: 'center', justifyContent: 'center', paddingHorizontal: px(12), backgroundColor: C.headerLight },
+  creatorBannerText: { color: '#FFFFFF', fontFamily: fonts.medium, fontSize: px(12), letterSpacing: 0.2 },
   headerRow: { height: px(78), flexDirection: 'row', alignItems: 'center', paddingHorizontal: px(16) },
   headerSide: { width: px(56), justifyContent: 'center' },
   headerTitle: { flex: 1, textAlign: 'center', color: C.primaryForeground, fontFamily: fonts.medium, fontSize: px(22) },

@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors, { fonts, px } from '@/constants/colors';
 import { BridgeArt, CardArt, CarArt, GiftArt, HeaderBands, IdCardArt, MailArt, MarketplaceArt, PhoneArt } from '@/components/Art';
-import { BottomSheet, Notice, PrimaryButton, ProgressRing, StepRow, useTopInset } from '@/components/ui';
+import { BottomSheet, CreatorBanner, Notice, PrimaryButton, ProgressRing, StepRow, useTopInset } from '@/components/ui';
 import { useProfileProgress } from '@/viewmodels/useProfileProgress';
 import { StepKey } from '@/models';
 import { tap, warn } from '@/services/haptics';
@@ -25,7 +25,8 @@ export default function HomeScreen() {
   const top = useTopInset();
   const { width } = useWindowDimensions();
   const [gate, setGate] = useState<null | 'vehicle' | 'payment'>(null);
-  const headerH = top + px(92);
+  const bannerH = px(24);
+  const headerH = top + bannerH + px(92);
   const overlayH = headerH + px(86) + px(26);
 
   const onStep = (key: StepKey) => {
@@ -96,7 +97,10 @@ export default function HomeScreen() {
       <View pointerEvents="box-none" style={[s.overlay, { height: overlayH }]}>
         <LinearGradient colors={[C.header, '#DD474D', 'rgba(255,255,255,0.98)', '#FFFFFF']} locations={[0, 0.55, 0.86, 1]} style={StyleSheet.absoluteFill} />
         <HeaderBands width={width} height={headerH} />
-        <View style={[s.greetRow, { paddingTop: top, height: headerH }]}>
+        <View style={{ paddingTop: top }}>
+          <CreatorBanner />
+        </View>
+        <View style={[s.greetRow, { height: px(92) }]}>
           <Text style={s.greet} numberOfLines={1}>Hi, {vm.name}</Text>
           <Pressable testID="home-notifications" onPress={() => { tap(); router.push('/notifications'); }} style={s.bell}>
             <Feather name="bell" size={22} color="#FFF" />

@@ -6,7 +6,7 @@ import { HeaderBands, JustGoLogo } from '@/components/Art';
 import { KeyboardAwareScrollViewCompat } from '@/components/KeyboardAwareScrollViewCompat';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { RegisterForm } from '@/components/auth/RegisterForm';
-import { useBottomInset, useTopInset } from '@/components/ui';
+import { CreatorBanner, useBottomInset, useTopInset } from '@/components/ui';
 import { AuthTab } from '@/viewmodels/useAuthViewModel';
 import { useApp } from '@/viewmodels/AppContext';
 import { success, tap } from '@/services/haptics';
@@ -31,6 +31,7 @@ export default function AuthScreen() {
     <View style={s.root}>
       <View style={[s.hero, { paddingTop: top }]}>
         <HeaderBands width={width} height={top + px(260)} />
+        <CreatorBanner />
         <Text style={s.hey}>Hey!</Text>
         <View style={s.welcomeRow}>
           <Text style={s.welcome}>Welcome to</Text>

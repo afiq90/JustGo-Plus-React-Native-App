@@ -37,6 +37,7 @@ _Describe the high-level user-facing capabilities of this app once they exist._
 - The app is called JustGo Plus.
 - Use React Native with the MVVM pattern.
 - Match the eight supplied app screenshots 1:1 rather than redesigning them.
+- Show a small “This app was created by Afiq” banner on every screen.
 
 ## Gotchas
 
