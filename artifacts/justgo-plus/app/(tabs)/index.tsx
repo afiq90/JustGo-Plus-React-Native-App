@@ -25,7 +25,7 @@ export default function HomeScreen() {
   const top = useTopInset();
   const { width } = useWindowDimensions();
   const [gate, setGate] = useState<null | 'vehicle' | 'payment'>(null);
-  const bannerH = px(24);
+  const bannerH = px(28);
   const headerH = top + bannerH + px(92);
   const overlayH = headerH + px(86) + px(26);
 

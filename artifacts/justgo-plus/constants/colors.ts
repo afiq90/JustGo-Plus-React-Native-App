@@ -33,6 +33,7 @@ const palette = {
   tabActive: '#EE4B52',
   chevronCircle: '#D4D4D4',
   plusBlue: '#1C4FA0',
+  creatorBanner: '#F0F8F3',
   overlay: 'rgba(0,0,0,0.45)',
   success: '#2E8B57',
 };

@@ -13,7 +13,9 @@ const C = colors.light;
 export function CreatorBanner() {
   return (
     <View accessibilityLabel="This app was created by Afiq" style={s.creatorBanner}>
-      <Text style={s.creatorBannerText}>This app was created by Afiq</Text>
+      <Text style={s.creatorBannerText}>
+        This app was created by <Text style={s.creatorBannerName}>Afiq</Text>
+      </Text>
     </View>
   );
 }
@@ -183,8 +185,9 @@ export const ui = StyleSheet.create({
 
 const s = StyleSheet.create({
   header: { backgroundColor: C.header, overflow: 'hidden' },
-  creatorBanner: { minHeight: px(24), alignItems: 'center', justifyContent: 'center', paddingHorizontal: px(12), backgroundColor: C.headerLight },
-  creatorBannerText: { color: '#FFFFFF', fontFamily: fonts.medium, fontSize: px(12), letterSpacing: 0.2 },
+  creatorBanner: { minHeight: px(28), alignItems: 'center', justifyContent: 'center', paddingHorizontal: px(12), backgroundColor: C.creatorBanner },
+  creatorBannerText: { color: C.success, fontFamily: fonts.medium, fontSize: px(14), letterSpacing: 0.2 },
+  creatorBannerName: { color: C.success, fontFamily: fonts.bold },
   headerRow: { height: px(78), flexDirection: 'row', alignItems: 'center', paddingHorizontal: px(16) },
   headerSide: { width: px(56), justifyContent: 'center' },
   headerTitle: { flex: 1, textAlign: 'center', color: C.primaryForeground, fontFamily: fonts.medium, fontSize: px(22) },
