@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "9v0kmrnonSvGSbEzq49jj"
+uri = "file://artifacts/justgo-plus/docs/justgo-plus-learning-guide.html"
+type = "html"
+title = "JustGo Plus — App Architecture & Learning Guide"
+description = "A detailed, self-contained learning document on the app’s React Native stack, MVVM design, navigation, local storage, forms, privacy boundaries, and production roadmap."
+logical_id = "3131979a-72e7-4c7f-b28e-b53f577e1a2c"
+content_hash = "sha256:26fd75f2e466d8014f9f2ef8406f7ac90ec78039943acd3dae41953186efaecc"
+size = 26397
+mtime_ms = 1792748388862
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:6260bfa9-0182-424e-935a-bc38d02264a5/3131979a-72e7-4c7f-b28e-b53f577e1a2c/acbb5de4-7dc9-4796-b991-fd49e8b58229"
+storage_version_token = "1792748410925371"
+content_type = "text/html"
