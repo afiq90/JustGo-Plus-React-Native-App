@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Switch, View } from 'react-native';
 import { router } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
@@ -7,6 +7,7 @@ import { BottomSheet, Field, Notice, OptionRow, OutlineButton, PrimaryButton } f
 import { useRegisterViewModel } from '@/viewmodels/useAuthViewModel';
 import { Nationality } from '@/models';
 import { tap, warn } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 const DOC_LABEL = { MYKAD: 'MYKAD', MYTENTERA: 'MYTENTERA', PASSPORT: 'PASSPORT' } as const;

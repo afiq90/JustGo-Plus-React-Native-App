@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
 import { IdCardArt } from '@/components/Art';
 import { Notice, PrimaryButton, RedHeader, useBottomInset } from '@/components/ui';
 import { warn } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 const STEPS = ['Scan the front and back of your MyKad or passport', 'Take a live selfie for face matching', 'Wait for the provider to confirm your identity'];

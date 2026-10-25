@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
@@ -8,6 +8,7 @@ import { BottomSheet, Field, Notice, PrimaryButton, RedHeader, useBottomInset } 
 import { useCardsViewModel } from '@/viewmodels/useEntityForms';
 import { TollCardKind } from '@/models';
 import { success, tap, warn } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 

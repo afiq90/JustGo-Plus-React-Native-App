@@ -12,6 +12,7 @@ export const demoRepository = {
     return {
       ...DEFAULT_DATA,
       ...parsed,
+      language: parsed.language === 'ms' ? 'ms' : 'en',
       profile: { ...DEFAULT_DATA.profile, ...(parsed.profile ?? {}) },
       filter: { ...DEFAULT_DATA.filter, ...(parsed.filter ?? {}) },
     };

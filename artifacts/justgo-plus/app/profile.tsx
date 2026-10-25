@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
@@ -7,6 +7,7 @@ import { KeyboardAwareScrollViewCompat } from '@/components/KeyboardAwareScrollV
 import { DemoBadge, Field, Notice, PrimaryButton, RedHeader, useBottomInset } from '@/components/ui';
 import { useProfileViewModel } from '@/viewmodels/useEntityForms';
 import { success, warn } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 

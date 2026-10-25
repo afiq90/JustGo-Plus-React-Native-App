@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import colors, { fonts, px } from '@/constants/colors';
 import { CardArt } from '@/components/Art';
 import { Notice, PrimaryButton, RedHeader, useBottomInset } from '@/components/ui';
 import { warn } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 

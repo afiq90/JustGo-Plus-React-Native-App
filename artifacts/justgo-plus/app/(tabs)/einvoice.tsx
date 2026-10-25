@@ -1,10 +1,11 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import colors, { fonts, px } from '@/constants/colors';
 import { IdCardArt, MailArt, PhoneArt } from '@/components/Art';
 import { ProgressRing, RedHeader, StepRow } from '@/components/ui';
 import { useProfileProgress } from '@/viewmodels/useProfileProgress';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 const ICONS = [<PhoneArt key="p" size={px(36)} />, <MailArt key="m" size={px(32)} />, <IdCardArt key="i" size={px(32)} />];

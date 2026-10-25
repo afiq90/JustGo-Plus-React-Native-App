@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { router } from 'expo-router';
 import colors, { fonts, px } from '@/constants/colors';
 import { HeaderBands, JustGoLogo } from '@/components/Art';
@@ -10,6 +10,7 @@ import { CreatorBanner, useBottomInset, useTopInset } from '@/components/ui';
 import { AuthTab } from '@/viewmodels/useAuthViewModel';
 import { useApp } from '@/viewmodels/AppContext';
 import { success, tap } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 

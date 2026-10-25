@@ -34,6 +34,7 @@ function RootLayoutNav() {
       <Stack.Screen name="identity" />
       <Stack.Screen name="change-password" />
       <Stack.Screen name="notifications" />
+      <Stack.Screen name="language" />
     </Stack>
   );
 }

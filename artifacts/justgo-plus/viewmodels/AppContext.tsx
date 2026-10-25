@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { AppData, DEFAULT_DATA, Profile, TollCard, TransactionFilter, Vehicle } from '@/models';
+import { AppData, AppLanguage, DEFAULT_DATA, Profile, TollCard, TransactionFilter, Vehicle } from '@/models';
 import { demoRepository, newId } from '@/repositories/demoRepository';
 
 interface AppContextValue {
@@ -9,6 +9,7 @@ interface AppContextValue {
   reload: () => void;
   signIn: () => Promise<void>;
   signOut: () => Promise<void>;
+  setLanguage: (language: AppLanguage) => Promise<void>;
   updateProfile: (p: Partial<Profile>) => Promise<void>;
   saveVehicle: (v: Omit<Vehicle, 'id' | 'createdAt'>, id?: string) => Promise<void>;
   deleteVehicle: (id: string) => Promise<void>;
@@ -49,6 +50,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     data, loading, error, reload: load,
     signIn: () => commit((d) => ({ ...d, signedIn: true })),
     signOut: () => commit((d) => ({ ...d, signedIn: false })),
+    setLanguage: (language) => commit((d) => ({ ...d, language })),
     updateProfile: (p) => commit((d) => ({ ...d, profile: { ...d.profile, ...p } })),
     saveVehicle: (v, id) => commit((d) => ({
       ...d,
@@ -67,7 +69,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setFilter: (f) => commit((d) => ({ ...d, filter: f })),
     resetLocalDemo: async () => {
       await demoRepository.clear();
-      const fresh = { ...DEFAULT_DATA, signedIn: false };
+      const fresh = { ...DEFAULT_DATA, language: dataRef.current.language, signedIn: false };
       dataRef.current = fresh;
       setData(fresh);
       await demoRepository.save(fresh);

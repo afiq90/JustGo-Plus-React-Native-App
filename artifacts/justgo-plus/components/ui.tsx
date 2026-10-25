@@ -1,12 +1,15 @@
 import React from 'react';
-import { ActivityIndicator, Modal, Platform, Pressable, StyleSheet, Text, TextInput, TextInputProps, useWindowDimensions, View, ViewStyle } from 'react-native';
+import { ActivityIndicator, Modal, Platform, Pressable, StyleSheet, TextInput, TextInputProps, useWindowDimensions, View, ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, { Circle, Text as SvgText } from 'react-native-svg';
 import colors, { fonts, px } from '@/constants/colors';
 import { HeaderBands } from '@/components/Art';
+import { LocalizedText as Text } from '@/components/LocalizedText';
+import { translateText } from '@/constants/i18n';
 import { tap } from '@/services/haptics';
+import { useApp } from '@/viewmodels/AppContext';
 
 const C = colors.light;
 
@@ -119,10 +122,12 @@ export function OutlineButton({ label, onPress, testID, icon, style }: { label: 
 }
 
 export function Field({ error, label, ...props }: TextInputProps & { error?: string; label?: string }) {
+  const { data } = useApp();
+  const placeholder = props.placeholder ? translateText(data.language, props.placeholder) : props.placeholder;
   return (
     <View style={{ marginBottom: px(20) }}>
       {label ? <Text style={s.fieldLabel}>{label}</Text> : null}
-      <TextInput placeholderTextColor="#C2C2C2" {...props} style={[s.field, !!error && { borderColor: C.destructive }, props.style]} />
+      <TextInput placeholderTextColor="#C2C2C2" {...props} placeholder={placeholder} style={[s.field, !!error && { borderColor: C.destructive }, props.style]} />
       {error ? <Text style={s.error}>{error}</Text> : null}
     </View>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
@@ -7,6 +7,7 @@ import { MenuRow, RedHeader, SectionTitle } from '@/components/ui';
 import { ConfirmSheet } from '@/components/ConfirmSheet';
 import { useApp } from '@/viewmodels/AppContext';
 import { success } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 const I = 28;
@@ -45,6 +46,7 @@ export default function MeScreen() {
         <MenuRow testID="me-rfid" label="RFID Tags" icon={<MaterialCommunityIcons name="access-point" size={I + 2} color={ic} />} onPress={() => router.push({ pathname: '/cards', params: { kind: 'rfid' } })} />
 
         <SectionTitle style={s.section}>General</SectionTitle>
+        <MenuRow testID="me-language" label="Language" icon={<Feather name="globe" size={I} color={ic} />} onPress={() => router.push('/language')} />
         <MenuRow testID="me-password" label="Change Password" icon={<Feather name="lock" size={I} color={ic} />} onPress={() => router.push('/change-password')} />
         <MenuRow testID="me-pm-terms" label="PLUSMiles' Terms & Conditions" icon={<MaterialCommunityIcons name="shield-key-outline" size={I + 2} color={ic} />} onPress={() => info('plusmiles-terms')} />
         <MenuRow testID="me-pm-privacy" label="PLUSMiles' Privacy Policy" icon={<MaterialCommunityIcons name="script-text-outline" size={I + 2} color={ic} />} onPress={() => info('plusmiles-privacy')} />

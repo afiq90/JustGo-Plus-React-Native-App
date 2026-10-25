@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
@@ -7,6 +7,7 @@ import { CarArt } from '@/components/Art';
 import { Notice, PrimaryButton, RedHeader, useBottomInset } from '@/components/ui';
 import { useApp } from '@/viewmodels/AppContext';
 import { tap } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 

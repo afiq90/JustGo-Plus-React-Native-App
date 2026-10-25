@@ -1,11 +1,12 @@
 import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
 import { EmptyReceiptArt } from '@/components/Art';
 import { BottomSheet, Notice, OptionRow, OutlineButton, PrimaryButton, RedHeader } from '@/components/ui';
 import { RANGE_OPTIONS, STATUS_OPTIONS, TYPE_OPTIONS, useTransactionsViewModel } from '@/viewmodels/useTransactionsViewModel';
 import { tap, warn } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 

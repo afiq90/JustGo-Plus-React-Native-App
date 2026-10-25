@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import colors, { fonts, px } from '@/constants/colors';
 import { BottomSheet, OutlineButton, PrimaryButton } from '@/components/ui';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 export function ConfirmSheet({ visible, title, message, confirmLabel, onConfirm, onCancel, testID }: {
   visible: boolean; title: string; message: string; confirmLabel: string; onConfirm: () => void; onCancel: () => void; testID: string;

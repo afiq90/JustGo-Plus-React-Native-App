@@ -2,8 +2,11 @@ import { useMemo, useState } from 'react';
 import { DateRangeKey, Transaction, TransactionFilter, TxnStatus, TxnType } from '@/models';
 import { useApp } from './AppContext';
 
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const fmt = (d: Date) => String(d.getDate()).padStart(2, '0') + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+const MONTHS: Record<'en' | 'ms', string[]> = {
+  en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  ms: ['Jan','Feb','Mac','Apr','Mei','Jun','Jul','Ogo','Sep','Okt','Nov','Dis'],
+};
+const fmt = (d: Date, language: 'en' | 'ms') => String(d.getDate()).padStart(2, '0') + ' ' + MONTHS[language][d.getMonth()] + ' ' + d.getFullYear();
 
 export function rangeFor(key: DateRangeKey, now = new Date()): { from: Date; to: Date } {
   const to = new Date(now);
@@ -38,7 +41,7 @@ export function useTransactionsViewModel() {
   const activeFilters = (filter.type !== 'all' ? 1 : 0) + (filter.status !== 'all' ? 1 : 0);
   return {
     items, filter, draft, sheet, activeFilters,
-    rangeLabel: fmt(from) + ' - ' + fmt(to),
+    rangeLabel: fmt(from, data.language) + ' - ' + fmt(to, data.language),
     openDate: () => { setDraft(filter); setSheet('date'); },
     openFilters: () => { setDraft(filter); setSheet('filters'); },
     close: () => setSheet('none'),

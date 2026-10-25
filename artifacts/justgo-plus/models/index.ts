@@ -1,5 +1,6 @@
 export type Nationality = 'MALAYSIAN' | 'NON-MALAYSIAN';
 export type DocumentType = 'MYKAD' | 'MYTENTERA' | 'PASSPORT';
+export type AppLanguage = 'en' | 'ms';
 
 export interface Profile {
   fullName: string;
@@ -52,6 +53,7 @@ export interface Transaction {
 
 export interface AppData {
   signedIn: boolean;
+  language: AppLanguage;
   profile: Profile;
   vehicles: Vehicle[];
   cards: TollCard[];
@@ -89,6 +91,7 @@ export const DEFAULT_FILTER: TransactionFilter = { range: 'last3m', type: 'all',
 
 export const DEFAULT_DATA: AppData = {
   signedIn: true,
+  language: 'en',
   profile: DEMO_PROFILE,
   vehicles: [],
   cards: [],

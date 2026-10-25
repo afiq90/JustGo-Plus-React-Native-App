@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts } from '@/constants/colors';
 import { RedHeader } from '@/components/ui';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 

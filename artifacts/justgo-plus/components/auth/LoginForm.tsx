@@ -1,16 +1,20 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
 import { MailArt, MalaysiaFlag, MyDigitalIdMark, PlusMilesMark } from '@/components/Art';
 import { Field, Notice, OutlineButton, PrimaryButton } from '@/components/ui';
 import { useLoginViewModel } from '@/viewmodels/useAuthViewModel';
 import { tap, warn } from '@/services/haptics';
+import { LocalizedText as Text } from '@/components/LocalizedText';
+import { translateText } from '@/constants/i18n';
+import { useApp } from '@/viewmodels/AppContext';
 
 const C = colors.light;
 
 export function LoginForm({ onDemo }: { onDemo: () => void }) {
   const vm = useLoginViewModel();
+  const { data } = useApp();
   return (
     <View>
       <View style={s.withRow}>
@@ -30,7 +34,7 @@ export function LoginForm({ onDemo }: { onDemo: () => void }) {
             <TextInput
               testID="login-phone"
               style={s.phoneInput}
-              placeholder="Phone number"
+              placeholder={translateText(data.language, 'Phone number')}
               placeholderTextColor="#C2C2C2"
               keyboardType="phone-pad"
               maxLength={11}

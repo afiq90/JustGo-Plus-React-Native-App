@@ -1,9 +1,10 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import colors, { fonts, px } from '@/constants/colors';
 import { Notice, OutlineButton, RedHeader, useBottomInset } from '@/components/ui';
+import { LocalizedText as Text } from '@/components/LocalizedText';
 
 const C = colors.light;
 
