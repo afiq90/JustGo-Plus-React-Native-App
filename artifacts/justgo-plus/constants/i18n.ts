@@ -68,6 +68,12 @@ const MS: Record<string, string> = {
   'Hi, ': 'Hai, ',
   'Add Vehicle': 'Tambah Kenderaan',
   'Add\npayment': 'Tambah\npembayaran',
+  'Add': 'Tambah',
+  'payment': 'pembayaran',
+  'On Penang Bridge Toll': 'untuk Tol Jambatan Pulau Pinang',
+  'LOCAL DEMO DATA': 'DATA DEMO SETEMPAT',
+  'Granite Grey': 'Kelabu Granit',
+  'demo build': 'versi demo',
   'Service not connected': 'Perkhidmatan belum disambungkan',
   'Verify your identity first': 'Sahkan identiti anda dahulu',
   'ANPR enrolment needs the live toll service, which is not connected in this build.': 'Pendaftaran ANPR memerlukan perkhidmatan tol langsung. Perkhidmatan ini belum disambungkan dalam versi ini.',
@@ -176,7 +182,6 @@ const MS: Record<string, string> = {
   'No payment methods': 'Tiada kaedah pembayaran',
   'ANPR toll payment charges a linked card or e-wallet. Linking requires a verified identity and a connected payment gateway.': 'Pembayaran tol ANPR mengenakan caj kepada kad atau e-dompet yang dipautkan. Pautan memerlukan identiti yang disahkan dan gerbang pembayaran yang disambungkan.',
   'The payment gateway is not connected in this build. This app never asks for or stores card numbers, and no payment was set up.': 'Gerbang pembayaran belum disambungkan dalam versi ini. Aplikasi ini tidak meminta atau menyimpan nombor kad dan tiada pembayaran disediakan.',
-  'Add payment method': 'Tambah kaedah pembayaran',
   'Identity Verification': 'Pengesahan Identiti',
   'Verifying your identity unlocks payment methods, ANPR vehicles and monthly e-Invoices. It usually involves:': 'Pengesahan identiti membolehkan anda menggunakan kaedah pembayaran, kenderaan ANPR dan e-Invois bulanan. Proses ini biasanya merangkumi:',
   'Scan the front and back of your MyKad or passport': 'Imbas bahagian depan dan belakang MyKad atau pasport anda',
@@ -191,7 +196,6 @@ const MS: Record<string, string> = {
   'This page is not available.': 'Halaman ini tidak tersedia.',
   'Go back': 'Kembali',
   'Not found': 'Tidak ditemui',
-  'Change Password': 'Tukar Kata Laluan',
   'Password changes happen with PLUSMiles': 'Perubahan kata laluan dibuat melalui PLUSMiles',
   'Your JustGo sign-in uses your PLUSMiles account. Changing its password requires the PLUSMiles authentication service to confirm your current password and send a one-time code.': 'Log masuk JustGo anda menggunakan akaun PLUSMiles. Untuk menukar kata laluan, perkhidmatan pengesahan PLUSMiles perlu mengesahkan kata laluan semasa anda dan menghantar kod sekali guna.',
   'That service is not connected in this demo build, so there is no password to change. This app never asks for or stores passwords.': 'Perkhidmatan itu belum disambungkan dalam versi demo ini, jadi kata laluan tidak boleh ditukar. Aplikasi ini tidak meminta atau menyimpan kata laluan.',
@@ -257,14 +261,12 @@ const MS: Record<string, string> = {
   'Use the official PLUSMiles or JustGo app, or the customer service details published on their official websites.': 'Gunakan aplikasi rasmi PLUSMiles atau JustGo, atau butiran khidmat pelanggan di laman web rasmi mereka.',
   'For highway emergencies': 'Untuk kecemasan di lebuh raya',
   'Call 999 for police, fire or ambulance.': 'Hubungi 999 untuk polis, bomba atau ambulans.',
-  'Keep Discovering': 'Terus Teroka',
   'Marketplace brings motoring deals such as car care, insurance renewal and road-trip essentials into one place.': 'Pasaran menghimpunkan tawaran automotif seperti penjagaan kereta, pembaharuan insurans dan keperluan perjalanan.',
   'Status in this build': 'Status dalam versi ini',
   'The marketplace catalogue is not connected, so no products or prices are shown and nothing can be purchased.': 'Katalog pasaran belum disambungkan. Tiada produk atau harga dipaparkan dan tiada pembelian boleh dibuat.',
   'Redeem Reward': 'Tebus Ganjaran',
   'PLUSMiles members collect points on eligible highway spending and redeem them for rewards.': 'Ahli PLUSMiles mengumpul mata daripada perbelanjaan lebuh raya yang layak dan menebusnya untuk ganjaran.',
   'Your points balance and the rewards catalogue are not connected, so redemptions are unavailable here.': 'Baki mata dan katalog ganjaran anda belum disambungkan, jadi penebusan tidak tersedia di sini.',
-  'Promotion Program': 'Program Promosi',
   'A promotion offering 20% discount on Penang Bridge toll for eligible ANPR users.': 'Promosi yang menawarkan diskaun 20% tol Jambatan Pulau Pinang kepada pengguna ANPR yang layak.',
   'Who it is for': 'Siapa yang layak',
   'Typically, drivers with a verified identity, a linked payment method and a registered vehicle using ANPR at the Penang Bridge.': 'Biasanya, pemandu dengan identiti yang disahkan, kaedah pembayaran yang dipautkan dan kenderaan berdaftar yang menggunakan ANPR di Jambatan Pulau Pinang.',
@@ -285,7 +287,11 @@ const MS: Record<string, string> = {
 export function translateText(language: AppLanguage, text: string): string {
   if (language === 'en') return text;
   const exact = MS[text];
-  if (exact) return exact;
+  if (exact !== undefined) return exact;
+  const trimmed = text.trim();
+  if (trimmed && MS[trimmed] !== undefined) {
+    return text.replace(trimmed, MS[trimmed]);
+  }
 
   const otpNoticeSuffix = ' is not connected in this build. No request was sent and nothing was verified. Use "Explore demo" to view the app with sample data.';
   if (text.endsWith(otpNoticeSuffix)) {

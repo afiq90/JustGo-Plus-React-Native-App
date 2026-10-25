@@ -72,7 +72,7 @@ const s = StyleSheet.create({
   root: { flex: 1, backgroundColor: C.header },
   hero: { paddingHorizontal: px(39), paddingBottom: px(50), overflow: 'hidden' },
   hey: { color: '#FFF', fontFamily: fonts.semibold, fontSize: px(34), marginTop: px(30) },
-  welcomeRow: { flexDirection: 'row', alignItems: 'center', marginTop: px(8) },
+  welcomeRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', marginTop: px(8), rowGap: px(8) },
   welcome: { color: '#FFF', fontFamily: fonts.medium, fontSize: px(34), marginRight: px(20) },
   sheet: { flex: 1, backgroundColor: C.background, borderTopLeftRadius: px(36), borderTopRightRadius: px(36) },
   sheetContent: { flexGrow: 1, paddingHorizontal: px(38), paddingTop: px(18) },

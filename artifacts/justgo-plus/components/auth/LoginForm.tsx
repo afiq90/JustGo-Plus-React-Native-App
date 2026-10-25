@@ -74,7 +74,7 @@ export function LoginForm({ onDemo }: { onDemo: () => void }) {
 }
 
 const s = StyleSheet.create({
-  withRow: { flexDirection: 'row', alignItems: 'center', marginBottom: px(16) },
+  withRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', marginBottom: px(16) },
   with: { fontFamily: fonts.regular, fontSize: px(17), color: '#666' },
   phone: { flexDirection: 'row', height: px(64), borderRadius: px(16), borderWidth: 1, borderColor: C.input, overflow: 'hidden' },
   country: { width: px(134), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: px(10), borderRightWidth: 1, borderRightColor: C.input },

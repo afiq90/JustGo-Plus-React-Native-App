@@ -211,7 +211,7 @@ const s = StyleSheet.create({
   primary: { height: px(66), borderRadius: px(14), alignItems: 'center', justifyContent: 'center' },
   primaryText: { color: '#FFF', fontFamily: fonts.medium, fontSize: px(21) },
   outline: { flexDirection: 'row', alignItems: 'center', height: px(66), borderRadius: px(14), borderWidth: 1, borderColor: C.border, paddingHorizontal: px(14), marginBottom: px(12), backgroundColor: C.background },
-  outlineText: { fontFamily: fonts.semibold, fontSize: px(17.5), color: '#111', marginLeft: px(6) },
+  outlineText: { flex: 1, flexShrink: 1, fontFamily: fonts.semibold, fontSize: px(17.5), color: '#111', marginLeft: px(6) },
   fieldLabel: { fontFamily: fonts.medium, fontSize: px(15), color: '#444', marginBottom: px(8) },
   field: { height: px(62), borderRadius: px(16), borderWidth: 1, borderColor: C.input, paddingHorizontal: px(20), fontFamily: fonts.regular, fontSize: px(17), color: C.foreground, backgroundColor: C.background },
   error: { color: C.destructive, fontFamily: fonts.regular, fontSize: px(13.5), marginTop: px(6), marginLeft: px(4) },

@@ -1,0 +1,1 @@
+- [App language policy](language-policy.md) — English is the default; users can choose English or Malay.

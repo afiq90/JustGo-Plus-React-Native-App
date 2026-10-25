@@ -43,7 +43,7 @@ export default function CardsScreen() {
           <View style={s.row}>
             <MaterialCommunityIcons name={icon} size={28} color="#222" />
             <Pressable testID={'card-edit-' + item.id} onPress={() => { tap(); vm.startEdit(item.id); }} style={{ flex: 1, marginLeft: 16 }}>
-              <Text style={s.label}>{item.label}</Text>
+              <Text localize={false} style={s.label}>{item.label}</Text>
               <Text style={s.meta}>{item.number.replace(/(.{4})/g, '$1 ').trim()}</Text>
             </Pressable>
             <Pressable testID={'card-delete-' + item.id} hitSlop={10} onPress={() => { warn(); setDel(item.id); }}><Feather name="trash-2" size={20} color="#777" /></Pressable>

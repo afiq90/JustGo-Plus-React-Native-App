@@ -10,6 +10,7 @@ import { useProfileProgress } from '@/viewmodels/useProfileProgress';
 import { StepKey } from '@/models';
 import { tap, warn } from '@/services/haptics';
 import { LocalizedText as Text } from '@/components/LocalizedText';
+import { useApp } from '@/viewmodels/AppContext';
 
 const C = colors.light;
 
@@ -23,6 +24,7 @@ const STEP_ICON: Record<StepKey, (muted: boolean) => React.ReactNode> = {
 
 export default function HomeScreen() {
   const vm = useProfileProgress();
+  const { data } = useApp();
   const top = useTopInset();
   const { width } = useWindowDimensions();
   const [gate, setGate] = useState<null | 'vehicle' | 'payment'>(null);
@@ -65,7 +67,7 @@ export default function HomeScreen() {
           ) : null}
           <View style={s.divider} />
           <Text style={s.h2}>Jimat Di Penang</Text>
-          <View style={s.promo}>
+          <View style={[s.promo, data.language === 'ms' && { height: px(190) }]}>
             <View style={s.promoLeft}>
               <Text style={s.promoKicker}>Promotion Program</Text>
               <Text style={s.promoTitle}>Enjoy <Text style={s.promoEm}>20% Discount</Text>{'\n'}On Penang Bridge Toll</Text>
@@ -102,7 +104,7 @@ export default function HomeScreen() {
           <CreatorBanner />
         </View>
         <View style={[s.greetRow, { height: px(92) }]}>
-          <Text style={s.greet} numberOfLines={1}>Hi, {vm.name}</Text>
+          <Text style={s.greet} numberOfLines={1}>Hi, <Text localize={false}>{vm.name}</Text></Text>
           <Pressable testID="home-notifications" onPress={() => { tap(); router.push('/notifications'); }} style={s.bell}>
             <Feather name="bell" size={22} color="#FFF" />
           </Pressable>
@@ -143,7 +145,7 @@ const s = StyleSheet.create({
   bell: { width: px(46), height: px(46), borderRadius: px(23), borderWidth: 2, borderColor: '#FFF', alignItems: 'center', justifyContent: 'center', marginTop: px(20) },
   quick: { marginHorizontal: px(19), height: px(86), backgroundColor: '#FFF', borderRadius: px(16), flexDirection: 'row', alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 10, shadowOffset: { width: 0, height: 3 }, elevation: 3 },
   quickItem: { flex: 1, flexDirection: 'row', alignItems: 'center', paddingLeft: px(20) },
-  quickText: { fontFamily: fonts.medium, fontSize: px(18.5), color: '#6D6D6D', marginLeft: px(4), lineHeight: px(23) },
+  quickText: { flexShrink: 1, fontFamily: fonts.medium, fontSize: px(18.5), color: '#6D6D6D', marginLeft: px(4), lineHeight: px(23) },
   quickDivider: { width: 1.5, height: px(46), backgroundColor: '#DCDCDC' },
   h2: { fontFamily: fonts.bold, fontSize: px(20), color: '#111', marginBottom: px(12) },
   progressRow: { flexDirection: 'row', alignItems: 'flex-start' },
